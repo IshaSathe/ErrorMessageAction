@@ -2,9 +2,9 @@ name: 'Return an Error Message'
 description: 'Return an Error Message'
 
 inputs:
-  random-input:
+  error-message:
     description: "random"
-    default: "1"
+    default: "error message 1"
 
 runs:
   using: 'composite'
@@ -13,16 +13,8 @@ runs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - if: ${{ inputs.random-input == '1' }}
-      name: Send Error
+    - name: Send Error
       shell: bash
       run: |
-        echo "Error 1" >&2
+        echo "::set-output name=error_message::${{ inputs.error_message }}"
         exit 1
-
-    - if: ${{ inputs.random-input == '2' }}
-      name: Send Error
-      shell: bash
-      run: |
-        echo "Error 2" >&2
-        exit 2
