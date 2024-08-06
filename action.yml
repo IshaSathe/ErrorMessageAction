@@ -16,5 +16,6 @@ runs:
     - name: Send Error
       shell: bash
       run: |
+        echo "echoing error"
         echo "::set-output name=error_message::${{ inputs.error_message }}"
         exit 1
