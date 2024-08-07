@@ -17,5 +17,5 @@ runs:
       shell: bash
       run: |
         echo "echoing error"
-        echo "::set-output name=error_message::${{ inputs.error_message }}"
+        echo "CUSTOM_ERROR=Error the process failed" >> $GITHUB_ENV
         exit 1
