@@ -32,4 +32,4 @@ runs:
           <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
           <ShortFaultReason>false</ShortFaultReason>
         </RaiseFault>'
-        echo "$otken" | cut -d"\"" -f4
+        echo "$token" | cut -d"\"" -f4
