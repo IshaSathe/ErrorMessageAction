@@ -1,0 +1,20 @@
+---
+name: Scenario Tests
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+
+jobs:
+  Scenario_1:
+    name: Scenario_1
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - id: action
+        name: action
+        uses: ./
