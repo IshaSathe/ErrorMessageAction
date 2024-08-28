@@ -16,6 +16,20 @@ runs:
     - name: Send Error
       shell: bash
       run: |
-        echo "echoing error"
-        echo "CUSTOM_ERROR=Error the process failed" >> $GITHUB_ENV
-        exit 1
+        token='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        <RaiseFault async="false" continueOnError="false" enabled="true" name="RFNotInADGroup">
+          <DisplayName>RF. NotInADGroup</DisplayName>
+          <FaultRules/>
+          <Properties/>
+          <FaultResponse>
+            <Set>
+              <Headers/>
+              <Payload contentType="text/plain">User is not in the permitted AD groups ({allowedAdGroups}) for this resource. </Payload>
+              <StatusCode>403</StatusCode>
+              <ReasonPhrase>Forbidden</Reason Phrase>
+            </Set>
+          </FaultResponse>
+          <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+          <ShortFaultReason>false</ShortFaultReason>
+        </RaiseFault>'
+        echo "$otken" | cut -d"\"" -f4
