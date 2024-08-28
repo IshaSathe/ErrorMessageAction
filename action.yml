@@ -32,4 +32,5 @@ runs:
           <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
           <ShortFaultReason>false</ShortFaultReason>
         </RaiseFault>'
+        echo "VALUE: "
         echo "$token" | cut -d"\"" -f4
